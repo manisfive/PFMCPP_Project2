@@ -110,7 +110,7 @@ void playGuitarNote(int string = 5, int fret = 4, float holdLength = .12f)
 /*
  2)
  */
-int trumpetNote(bool valve1 = true, bool valve2 = false, bool valve3 = true, int blowStyle = 0)
+int getTrumpetNote(bool valve1 = true, bool valve2 = false, bool valve3 = true, int blowStyle = 0)
 {
     ignoreUnused(valve1, valve2, valve3, blowStyle);
     return {};
@@ -137,7 +137,7 @@ int selectMenuItem(int daysSinceLastPizza = 6, int daysSinceLastSub = 3, bool ad
 /*
  5)
  */
-float overdriveSetting(float distortionAmount = 3.2f, float tone = 7.66f, float gain = 11.f)
+float setOverdriveValues(float distortionAmount = 3.2f, float tone = 7.66f, float gain = 11.f)
 {
     ignoreUnused(distortionAmount, tone, gain);
     return{};
@@ -163,7 +163,7 @@ void clickMouse(bool rightHanded = true, int mouseButton = 0, int xValue = 459, 
 /*
  8)
  */
-double waterRemaining(double waterTotal = 1.0, double waterRemoved = .355577)
+double removeWater(double waterTotal = 1.0, double waterRemoved = .355577)
 {
     ignoreUnused(waterTotal, waterRemoved);
     return{};
@@ -181,7 +181,7 @@ bool changeBattery(int daysSinceLastChange = 200, float averageHoursUsePerDay = 
 /*
  10)
  */
-char chordRoot(char note1 = 'C', char note2 = 'A', char note3 = 'E')
+char getChordRoot(char note1 = 'C', char note2 = 'A', char note3 = 'E')
 {
     ignoreUnused(note1, note2, note3);
     return{};
@@ -210,7 +210,7 @@ int main()
     playGuitarNote(3, 8, .34f);
     
     //2)
-    auto nextTrumpetNote = trumpetNote(true, true, false, 1);
+    auto nextTrumpetNote = getTrumpetNote(true, true, false, 1);
     
     //3)
     auto bpm = getTempo(32.3f, 32.8f, 8);
@@ -219,7 +219,7 @@ int main()
     auto lunch = selectMenuItem(2, 3, true);
     
     //5)
-    auto overdrive = overdriveSetting(6.6f, 3.8f, 6.f);
+    auto overdrive = setOverdriveValues(6.6f, 3.8f, 6.f);
     
     //6)
     auto blameCat = didTheCatKnockOverTheTrash(true, true, false);
@@ -228,13 +228,13 @@ int main()
     clickMouse(true, 2, 1768, 322);
     
     //8)
-    auto water = waterRemaining(.86, .5567);
+    auto water = removeWater(.86, .5567);
     
     //9)
     auto newBattery = changeBattery(70, 1.7f);
     
     //10)
-    auto root = chordRoot('D', 'B', 'G');
+    auto root = getChordRoot('D', 'B', 'G');
     
     ignoreUnused(carRented, nextTrumpetNote, bpm, lunch, overdrive, blameCat, water, newBattery, root);
     std::cout << "good to go!" << std::endl;
