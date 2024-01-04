@@ -16,12 +16,12 @@ video: Chapter 2 - Part 3
  
  1) Write down the names of the 6 major primitive types available in C++  here:
  
- 
- 
- 
- 
- 
- 
+ bool
+ char
+ int
+ float
+ double
+ void
  
  
  
@@ -65,9 +65,27 @@ void variableDeclarations()
     //example:
     int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
     
+    bool faceUp = true;
+    bool eggCooked = false;
+    bool cupFull = true;
 
+    char songKey = 'E';
+    char minorThird = 'G';
+    char minorSixth = 'C';
     
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    int fingers = 5;
+    int hands = 2;
+    int limbs = 4;
+
+    float phaseOffset = .344f;
+    float pitchAdjust = 1.33f;
+    float paperTowelRollUsed = .0042f;
+    
+    double batteryPercent = 55.463;
+    double milesTraveled = 12.522;
+    double moviePercentRemaining = .211;
+
+    ignoreUnused(number, faceUp, eggCooked, cupFull, songKey, minorThird, minorSixth, fingers, hands, limbs, phaseOffset, pitchAdjust, paperTowelRollUsed, batteryPercent, milesTraveled, moviePercentRemaining); //passing each variable declared to the ignoreUnused() function
 }
 
 /*
@@ -84,42 +102,90 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
+void playGuitarNote(int string = 5, int fret = 4, float holdLength = .12f)
+{
+    ignoreUnused(string, fret, holdLength);
+}
 
 /*
  2)
  */
+int getTrumpetNote(bool valve1 = true, bool valve2 = false, bool valve3 = true, int blowStyle = 0)
+{
+    ignoreUnused(valve1, valve2, valve3, blowStyle);
+    return {};
+}
 
 /*
  3)
  */
+int getTempo(float note1StartPosition = 54.01f, float note2StartPosition = 54.4f, int intendedSubdivision = 16)
+{
+    ignoreUnused(note1StartPosition, note2StartPosition, intendedSubdivision);
+    return{};
+}
 
 /*
- 4)
- */
+4)
+*/
+int selectMenuItem(int daysSinceLastPizza = 6, int daysSinceLastSub = 3, bool addSalad = true)
+{
+    ignoreUnused(daysSinceLastPizza, daysSinceLastSub, addSalad);
+    return{};
+}
 
 /*
  5)
  */
+float setOverdriveValues(float distortionAmount = 3.2f, float tone = 7.66f, float gain = 11.f)
+{
+    ignoreUnused(distortionAmount, tone, gain);
+    return{};
+}
 
 /*
  6)
  */
+bool didTheCatKnockOverTheTrash(bool trashEverywhere = true, bool dogFilthy = false, bool catFilthy = true)
+{
+    ignoreUnused(trashEverywhere, dogFilthy, catFilthy);
+    return {};
+}
 
 /*
  7)
  */
+void clickMouse(bool rightHanded = true, int mouseButton = 0, int xValue = 459, int yValue = 744)
+{
+    ignoreUnused(rightHanded, mouseButton, xValue, yValue);
+}
 
 /*
  8)
  */
+double removeWater(double waterTotal = 1.0, double waterRemoved = .355577)
+{
+    ignoreUnused(waterTotal, waterRemoved);
+    return{};
+}
 
 /*
  9)
  */
+bool changeBattery(int daysSinceLastChange = 200, float averageHoursUsePerDay = 4.2f)
+{
+    ignoreUnused(daysSinceLastChange, averageHoursUsePerDay);
+    return{};
+}
 
 /*
  10)
  */
+char getChordRoot(char note1 = 'C', char note2 = 'A', char note3 = 'E')
+{
+    ignoreUnused(note1, note2, note3);
+    return{};
+}
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
@@ -141,27 +207,36 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
+    playGuitarNote(3, 8, .34f);
     
     //2)
+    auto nextTrumpetNote = getTrumpetNote(true, true, false, 1);
     
     //3)
+    auto bpm = getTempo(32.3f, 32.8f, 8);
     
     //4)
+    auto lunch = selectMenuItem(2, 3, true);
     
     //5)
+    auto overdrive = setOverdriveValues(6.6f, 3.8f, 6.f);
     
     //6)
+    auto blameCat = didTheCatKnockOverTheTrash(true, true, false);
     
     //7)
+    clickMouse(true, 2, 1768, 322);
     
     //8)
+    auto water = removeWater(.86, .5567);
     
     //9)
+    auto newBattery = changeBattery(70, 1.7f);
     
     //10)
+    auto root = getChordRoot('D', 'B', 'G');
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, nextTrumpetNote, bpm, lunch, overdrive, blameCat, water, newBattery, root);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
